@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        
+        
+<input type='text' id='input'>
+<script>
+document.getElementById('input').addEventListener('keydown', function(event) {
+  console.log(event.altKey); // Affiche si la touche Alt est enfoncée
+  console.log(event.ctrlKey); // Affiche si la touche Ctrl est enfoncée
+  console.log(event.metaKey); // Affiche si la touche Meta (ou Windows) est enfoncée
+  console.log(event.shiftKey); // Affiche si la touche Shift est enfoncée
+  console.log(event.code); // Affiche le code de la touche
+  console.log(event.key); // Affiche le nom de la touche
+});
+</script>
+
+<button (click)="onButtonClick()">Cliquez-moi</button>
+
+<br><br>
+<input (input)="onInputChange($event)" />
+<p>Vous avez saisi : {{ inputValue }}</p>
+
+<dl>
+	<dt>Item 1</dt>
+		<dd>Description 1</dd>
+        <dt>Item 2</dt>
+                <dd>Description 2</dd>
+        <dt>Item 3</dt>
+                <dd>Description 3</dd>
+</dl>
+
+<h1>Modifying HTML with JavaScript</h1> 
+ 
+<p id="para1">JavaScript is powerful!</p> 
+<p id="para2">It can manipulate HTML.</p>  
+
+<script type="text/javascript"> 
+     document.getElementById("para1").style.color = "green"; 
+</script> 
+        
+</body>
+</html>
+

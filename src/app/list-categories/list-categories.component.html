@@ -1,19 +1,32 @@
 <div class="container">
+  <br><br><br>
+  <input [(ngModel)]="titre" type="text" id="search" placeholder="Search for a categories...">
+
     <div class="row">
-      <div *ngFor = "let x of categories" class="col-md-4" style="margin-bottom: 20px;">
-        <img  [src]="x.image" [alt]="x.title" class="img-fluid h-50 w-75">
+      <div *ngFor = "let x of categories | contains:titre" class="col-md-4" style="margin-bottom: 20px;">
+        <!-- <ng-container  *ngIf="!titre || x.title.toLowerCase().includes(titre)"> -->
+        <img  [src]="x.image" [alt]="x.title" (click)="clickImg(x.description)" class="img-fluid h-50 w-75">
         <h3 >{{x.title | uppercase}}</h3>
         <button *ngIf="x.available"   class="btn btn-primary">Voir produits</button>
         <!-- <button [hidden]="x.available"   class="btn btn-primary">Voir produits</button> -->
-
-        <h5 *ngIf="!x.available"> Categorie non dispo</h5>
+        <h5 *ngIf="!x.available" style="color: crimson;"> Categorie non dispo</h5>
+      <!-- </ng-container> -->
       </div>
    
     </div>
   </div>
-        {{nom}}            <!--      intrpolation -->
+        {{nom}}            <!--      interpolation -->
         <button (click)="clickMe('a')">test</button>       <!--   event-binding -->
         <input value="nom"> 
         <input [value]="nom">         <!--     proprety-binding -->
         <br>
-        <input [(ngModel)]="nom">       <!--   databinding : twoways -->
+        <input [(ngModel)]="nom">       <!--   Dirictive   : databinding : twoways -->
+        ​<h1>{{ getDateTime() }}</h1>
+        ​ <ul>
+          <li *ngFor="let item of items; let i = index">{{ i + 1}} - {{ item }}</li>
+         </ul>
+         <p>le resultat est {{isTrue ?  'true' : 'false'}}</p>
+
+         <button appHighlight type="button" [disabled]="isTrue">Send</button>
+
+         <p [innerHTML]="nameDetails"></p>

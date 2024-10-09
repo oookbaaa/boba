@@ -10,10 +10,11 @@ export class ListCategoriesComponent {
 
   // attributes
 
-
+  titre:  string = "";
   nom: string="twin";
-
-
+  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  isTrue = true;
+  nameDetails = 'The name of the actor is <b>BEDHIAFI Okba</b>';
 
   categories : Category[]=[
     {"id":1,"title":"Grand électroménager",
@@ -38,9 +39,15 @@ export class ListCategoriesComponent {
 
 
 // functions
-
+getDateTime(): string {
+  return new Date().toLocaleTimeString();
+  }
   clickMe(ch: string)
   {
     console.log('test test:' + ch);
+  }
+  clickImg(description: string)
+  {
+    alert(description);
   }
 }
