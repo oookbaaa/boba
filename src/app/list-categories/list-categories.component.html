@@ -7,7 +7,9 @@
         <!-- <ng-container  *ngIf="!titre || x.title.toLowerCase().includes(titre)"> -->
         <img  [src]="x.image" [alt]="x.title" (click)="clickImg(x.description)" class="img-fluid h-50 w-75">
         <h3 >{{x.title | uppercase}}</h3>
-        <button *ngIf="x.available"   class="btn btn-primary">Voir produits</button>
+        <button [routerLink]="['/details' , x.id]" *ngIf="x.available"   class="btn btn-primary">Voir produits</button>
+        <button [routerLink]="['/details']" [queryParams]="{id:x.id}" *ngIf="x.available"   class="btn btn-primary">Voir produits</button>
+        <a routerLink="getdetails">details</a>
         <!-- <button [hidden]="x.available"   class="btn btn-primary">Voir produits</button> -->
         <h5 *ngIf="!x.available" style="color: crimson;"> Categorie non dispo</h5>
       <!-- </ng-container> -->
@@ -15,6 +17,7 @@
    
     </div>
   </div>
+  <router-outlet></router-outlet>
         {{nom}}            <!--      interpolation -->
         <button (click)="clickMe('a')">test</button>       <!--   event-binding -->
         <input value="nom"> 

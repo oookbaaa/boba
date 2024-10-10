@@ -1,6 +1,6 @@
 <nav   [ngClass]="isAdmin ? 'navbar navbar-expand-lg navbar-dark bg-dark'  : 'navbar navbar-expand-lg navbar-light bg-light'" >
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">TWINS</a>
+      <a class="navbar-brand" routerLink="home">TWINS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="#">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Produits</a>
+            <a class="nav-link" href="home">Produits</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">A propos</a>
