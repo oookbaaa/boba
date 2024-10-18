@@ -1,1 +1,25 @@
 <p>products-category works!</p>
+{{id}}
+<!-- methode 1 : avec ngIf -->
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of listProducts">
+        <ng-container *ngIf="product.categoryId == id">
+        <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
+        <h3>{{product.name}}</h3>
+        <h3>{{product.price}}</h3>
+        </ng-container>
+      </div>
+      </div>
+     </div> -->
+
+     
+     <div class="container">
+        <div class="row">
+          <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of list">
+            <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
+            <h3>{{product.name}}</h3>
+            <h3>{{product.price}}</h3>
+          </div>
+          </div>
+         </div>

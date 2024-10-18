@@ -9,33 +9,33 @@ import { HomeComponent } from './home/home.component';
 import { ListCategoriesComponent } from './list-categories/list-categories.component';
 import { FormsModule } from '@angular/forms';
 import { ContainsPipe } from './contains.pipe';
-import { HighlightDirective } from './highlight.directive';
+import { HighligtDirective } from './highligt.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsCategoryComponent } from './products-category/products-category.component';
-import { ProductsQRCategoryComponent } from './products-qrcategory/products-qrcategory.component';
 import { DetailsCategoryComponent } from './details-category/details-category.component';
+import { ProductsCategoryQPComponent } from './products-category-qp/products-category-qp.component';
 
 @NgModule({
   declarations: [
+    // liste des composants, pipes et directives crées
     AppComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
     ListCategoriesComponent,
     ContainsPipe,
-    HighlightDirective,
+    HighligtDirective,
     NotFoundComponent,
     ProductsCategoryComponent,
-    ProductsQRCategoryComponent,
     DetailsCategoryComponent,
-    
+    ProductsCategoryQPComponent,
   ],
-  imports: [
+  imports: [ //la liste des modules dont a besoin
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [], //services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

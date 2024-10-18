@@ -4,13 +4,14 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'contains'
 })
 export class ContainsPipe implements PipeTransform {
-  transform(values: any[], searchText: string): any[] {
-    if (!values || !searchText) {
-      return values;
-    }
-    return values.filter(value => {return JSON.stringify(value).toLowerCase().includes(searchText.toLowerCase())});
+
+  transform(items: any[], searchText: string): any[] {
+    if(!items) return[];
+    if(!searchText) return items;
+    searchText = searchText.toLocaleLowerCase();
+    return items.filter(item =>{
+      return JSON.stringify(item).toLocaleLowerCase().includes(searchText);
+    });
   }
 
 }
-
-

@@ -1,35 +1,25 @@
+<input type="text" [(ngModel)]="titre">
 <div class="container">
-  <br><br><br>
-  <input [(ngModel)]="titre" type="text" id="search" placeholder="Search for a categories...">
-
     <div class="row">
-      <div *ngFor = "let x of categories | contains:titre" class="col-md-4" style="margin-bottom: 20px;">
-        <!-- <ng-container  *ngIf="!titre || x.title.toLowerCase().includes(titre)"> -->
-        <img  [src]="x.image" [alt]="x.title" (click)="clickImg(x.description)" class="img-fluid h-50 w-75">
-        <h3 >{{x.title | uppercase}}</h3>
-        <button [routerLink]="['/details' , x.id]" *ngIf="x.available"   class="btn btn-primary">Voir produits</button>
-        <button [routerLink]="['/details']" [queryParams]="{id:x.id}" *ngIf="x.available"   class="btn btn-primary">Voir produits</button>
-        <a routerLink="getdetails">details</a>
-        <!-- <button [hidden]="x.available"   class="btn btn-primary">Voir produits</button> -->
-        <h5 *ngIf="!x.available" style="color: crimson;"> Categorie non dispo</h5>
-      <!-- </ng-container> -->
-      </div>
-   
+
+    <div *ngFor="let x of categories | contains:titre"  class="col-md-4" style="margin-bottom: 20px;">
+    <!-- <ng-container *ngIf="!titre || x.title.toLowerCase().includes(titre.toLowerCase())"> -->
+    <img (click)="clickImage(x.description)" [src]="x.image" [alt]="x.title" class="img-fluid h-50 w-75">
+    <h3 appHighligt>{{ x.title | uppercase}}</h3>
+    <a routerLink="getdetails">details</a>
+    <button [routerLink]="['/products',x.id]" class="btn btn-primary"  *ngIf="x.available">Voir produits</button>
+    <button [routerLink]="['/products']" [queryParams]="{id:x.id}" class="btn btn-primary" *ngIf="x.available">Voir produits</button>
+    <p [hidden]="x.available">categorie non disponible</p>
+    <!-- <button class="btn btn-primary" [hidden]="!x.available" >Voir produits</button> -->
+    <!-- </ng-container> -->
     </div>
-  </div>
-  <router-outlet></router-outlet>
-        {{nom}}            <!--      interpolation -->
-        <button (click)="clickMe('a')">test</button>       <!--   event-binding -->
-        <input value="nom"> 
-        <input [value]="nom">         <!--     proprety-binding -->
-        <br>
-        <input [(ngModel)]="nom">       <!--   Dirictive   : databinding : twoways -->
-        ​<h1>{{ getDateTime() }}</h1>
-        ​ <ul>
-          <li *ngFor="let item of items; let i = index">{{ i + 1}} - {{ item }}</li>
-         </ul>
-         <p>le resultat est {{isTrue ?  'true' : 'false'}}</p>
-
-         <button appHighlight type="button" [disabled]="isTrue">Send</button>
-
-         <p [innerHTML]="nameDetails"></p>
+    
+</div>
+</div>
+<router-outlet></router-outlet>
+<!--    {{ nom }}  ts->html interpolation-->
+<!--<button (click)="clickMe('a')">test</button> <!-- html->ts event binding -->
+<!-- <input value ="nom"> -->
+<!--<input [value] ="nom">--> <!-- ts->html property binding -->
+<!-- <br> -->
+<!--<input [(ngModel)] ="nom">--> <!--directive d'attribut data-binding two ways (FormsModule) -->
